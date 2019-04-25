@@ -21,10 +21,18 @@ public class Part1SimplestCalculator implements IStringCalculator {
             String[] parts = text.split(",");
 
             for (String part : parts) {
-                result += Integer.valueOf(part);
+                int value = Integer.valueOf(part);
+
+                if (shouldNumberBeConsidered(value)) {
+                    result += value;
+                }
             }
         }
 
         return result;
+    }
+
+    protected boolean shouldNumberBeConsidered(int value) {
+        return true;
     }
 }

@@ -40,6 +40,7 @@ public class Part1SimplestCalculatorTest {
         examples.put("12,24", 36); // Test 2 numbers
         examples.put("10,24,50", 84); // Test 3 numbers
         examples.put("1,2,5", 8); // Test the example in specification
+        examples.put("1001,2,5", 1008); // Test the example with large number to make sure it has no conflict after bonus 1
         return examples;
     }
 
