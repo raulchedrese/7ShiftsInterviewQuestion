@@ -1,6 +1,6 @@
 package test.seven_shifts;
 
-import com.seven_shifts.StringCalculator;
+import com.seven_shifts.IStringCalculator;
 import com.seven_shifts.calculators.Part2IgnoreNewLineCalculator;
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotEquals;
 public class Part2IgnoreNewLineCalculatorTest {
     @Test
     public void testEmptyStringResult() {
-        StringCalculator calculator = new Part2IgnoreNewLineCalculator();
+        IStringCalculator calculator = new Part2IgnoreNewLineCalculator();
         int result = calculator.add("");
 
         assertEquals(0, result);
@@ -20,7 +20,7 @@ public class Part2IgnoreNewLineCalculatorTest {
 
     @Test
     public void testNewLineOnlyStringResult() {
-        StringCalculator calculator = new Part2IgnoreNewLineCalculator();
+        IStringCalculator calculator = new Part2IgnoreNewLineCalculator();
         int result = calculator.add("\n");
 
         assertEquals(0, result);
@@ -31,7 +31,7 @@ public class Part2IgnoreNewLineCalculatorTest {
         // Note that this could also be done with parameterized test, but let's keep things simple.
         Hashtable<String, Integer> examples = getSetOfExamplesWithResult();
 
-        StringCalculator calculator = new Part2IgnoreNewLineCalculator();
+        IStringCalculator calculator = new Part2IgnoreNewLineCalculator();
 
         for (String text : examples.keySet()) {
             int expected = examples.get(text);
@@ -61,7 +61,7 @@ public class Part2IgnoreNewLineCalculatorTest {
 
         Hashtable<String, Integer> examples = getSetOfExamplesWithResult();
 
-        StringCalculator calculator = new Part2IgnoreNewLineCalculator();
+        IStringCalculator calculator = new Part2IgnoreNewLineCalculator();
 
         for (String text : examples.keySet()) {
             int wrongAnswer = examples.get(text) + 1; // +1 to make sure it is not the correct answer

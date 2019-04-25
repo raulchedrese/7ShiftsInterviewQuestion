@@ -1,6 +1,6 @@
 package com.seven_shifts.calculators;
 
-import com.seven_shifts.StringCalculator;
+import com.seven_shifts.IStringCalculator;
 
 /**
  * Implementation to support second question. Specification:
@@ -9,7 +9,7 @@ import com.seven_shifts.StringCalculator;
  *    a. Example: “1\n,2,3” - Result: “6”
  *    b. Example 2: “1,\n2,4” - Result: “7”
  */
-public class Part2IgnoreNewLineCalculator implements StringCalculator {
+public class Part2IgnoreNewLineCalculator implements IStringCalculator {
     @Override
     public int add(String text) {
         // The only difference between this part and the previous one is to ignore the new lines, the

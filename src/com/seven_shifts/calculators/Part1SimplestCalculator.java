@@ -1,6 +1,6 @@
 package com.seven_shifts.calculators;
 
-import com.seven_shifts.StringCalculator;
+import com.seven_shifts.IStringCalculator;
 
 /**
  * Implementation to support first question. Specification:
@@ -12,7 +12,7 @@ import com.seven_shifts.StringCalculator;
  *    d. Example input: “1,2,5” - expected result: “8”.
  *    e. Write tests to prove your input validates.
  */
-public class Part1SimplestCalculator implements StringCalculator {
+public class Part1SimplestCalculator implements IStringCalculator {
     @Override
     public int add(String text) {
         int result = 0;

@@ -1,7 +1,7 @@
 package test.seven_shifts;
 
 import com.seven_shifts.IStringCalculator;
-import com.seven_shifts.calculators.Part1SimplestCalculator;
+import com.seven_shifts.calculators.Part3CustomDelimiterCalculator;
 import org.junit.Test;
 
 import java.util.Hashtable;
@@ -9,11 +9,12 @@ import java.util.Hashtable;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-public class Part1SimplestCalculatorTest {
+public class Part3CustomDelimiterCalculatorTest {
     @Test
-    public void testEmptyStringResult() {
-        IStringCalculator calculator = new Part1SimplestCalculator();
-        int result = calculator.add("");
+    public void testTextWithDelimiterOnlyStringResult() {
+        // Remark: I am assuming that the header of the text is always in correct format and contains "\n"
+        IStringCalculator calculator = new Part3CustomDelimiterCalculator();
+        int result = calculator.add("//;\n");
 
         assertEquals(0, result);
     }
@@ -23,7 +24,7 @@ public class Part1SimplestCalculatorTest {
         // Note that this could also be done with parameterized test, but let's keep things simple.
         Hashtable<String, Integer> examples = getSetOfExamplesWithResult();
 
-        IStringCalculator calculator = new Part1SimplestCalculator();
+        IStringCalculator calculator = new Part3CustomDelimiterCalculator();
 
         for (String text : examples.keySet()) {
             int expected = examples.get(text);
@@ -35,11 +36,15 @@ public class Part1SimplestCalculatorTest {
 
     private Hashtable<String, Integer> getSetOfExamplesWithResult() {
         Hashtable<String, Integer> examples = new Hashtable<>();
-        examples.put("1", 1); // Test single number with single digit
-        examples.put("12", 12); // Test single number with multiple digits
-        examples.put("12,24", 36); // Test 2 numbers
-        examples.put("10,24,50", 84); // Test 3 numbers
-        examples.put("1,2,5", 8); // Test the example in specification
+        examples.put("//;\n1", 1); // Test single number with single digit
+        examples.put("//;\n12", 12); // Test single number with multiple digits
+        examples.put("//,\n12,26", 38); // Test 2 numbers
+        examples.put("//@\n10@24@60", 94); // Test 3 numbers
+
+        examples.put("//;\n1;3;4", 8); // Test the example in specification
+        examples.put("//$\n1$2$3", 6); // Test the example in specification
+        examples.put("//@\n2@3@8", 13); // Test the example in specification
+
         return examples;
     }
 
@@ -51,7 +56,7 @@ public class Part1SimplestCalculatorTest {
 
         Hashtable<String, Integer> examples = getSetOfExamplesWithResult();
 
-        IStringCalculator calculator = new Part1SimplestCalculator();
+        IStringCalculator calculator = new Part3CustomDelimiterCalculator();
 
         for (String text : examples.keySet()) {
             int wrongAnswer = examples.get(text) + 1; // +1 to make sure it is not the correct answer
@@ -61,4 +66,5 @@ public class Part1SimplestCalculatorTest {
         }
 
     }
+
 }
