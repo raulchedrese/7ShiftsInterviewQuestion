@@ -41,7 +41,8 @@ public class Part3CustomDelimiterCalculator implements IStringCalculator {
              * Pattern.quote is used to make sure a correct split occurs. For example, if the delimiter is $, a regular
              * split will consider it as a regular expression (representing the end of line).
              */
-            String[] parts = text.split(Pattern.quote(delimiter));
+            String regex = Pattern.quote(delimiter);
+            String[] parts = text.split(regex);
 
             for (String part : parts) {
                 result += Integer.valueOf(part);

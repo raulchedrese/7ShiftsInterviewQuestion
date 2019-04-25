@@ -44,6 +44,7 @@ public class Part3CustomDelimiterCalculatorTest {
         examples.put("//;\n1;3;4", 8); // Test the example in specification
         examples.put("//$\n1$2$3", 6); // Test the example in specification
         examples.put("//@\n2@3@8", 13); // Test the example in specification
+        examples.put("//***\n1***2***3", 6); // Test for bonus question 2
 
         return examples;
     }
